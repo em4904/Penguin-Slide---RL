@@ -1,80 +1,70 @@
-# 🧠 Reinforcement Learning GridWorld Simulator
+# 🐧 Penguin Slide RL  
+### Reinforcement Learning Project using Q-Learning, SARSA, and Expected SARSA  
+### Includes Interactive Jupyter UI + Pygame Animation
 
-A customizable 8×8 GridWorld environment built to experiment with Q-Learning, SARSA, and Expected SARSA. The project allows visualizing how RL agents learn optimal paths under different conditions, obstacles, and reward settings.
+This project implements a Reinforcement Learning (RL) agent (a penguin) that learns to navigate an **8×8 gridworld** containing:
 
-# 🚀 Features
+- Safe ice tiles  
+- Holes (fall = terminal negative reward)  
+- Rocks (blocked tiles)  
+- A goal tile (terminal positive reward)
 
-Interactive 8×8 GridWorld with start, goal, obstacles, and reward states
+The environment is **randomly generated each training run**, and users can control the number of **holes** and **rocks** using sliders in the notebook.
 
-# Supports three RL algorithms:
+The agent is trained using three RL algorithms:
 
-Q-Learning
+1. **Q-Learning** (Off-policy)  
+2. **SARSA** (On-policy)  
+3. **Expected SARSA** (Expected TD update)
 
-SARSA
+After training, the learned policy is visualized through a **Pygame animation**, where a small penguin moves across the grid following its optimal path.
 
-Expected SARSA
+---
 
-## Adjustable training settings (episodes, exploration rate, learning rate, discount factor)
+## 🚀 Features
 
-## Moving-average reward smoothing for clearer convergence analysis
+- Fully interactive **Jupyter Notebook UI**
+- Slider controls for:
+  - Episodes
+  - Algorithm selection
+  - Number of holes
+  - Number of rocks
+  - Animation speed
+- Dynamically generated maps each run
+- Three RL algorithms implemented:
+  - Q-Learning  
+  - SARSA  
+  - Expected SARSA  
+- Clean reward plots with **moving average visualization**
+- Smooth Pygame animation of the learned policy
+- Q-table saving and loading support
+- Penguin drawn procedurally without external assets
+- Fast, optimized training loop
 
-## Visual performance charts showing reward trends and stability
+---
 
-## Ability to add and modify obstacles dynamically
+## 🧠 Algorithms Implemented
 
-# Final report comparing accuracy and learning behavior of each algorithm
+### **Q-Learning**
+- Off-policy TD control  
+- Learns the optimal future reward  
+- Fastest convergence
 
+### **SARSA**
+- On-policy TD control  
+- Learns based on the action actually taken  
+- More conservative
 
-# 📘 How It Works
+### **Expected SARSA**
+- Uses expected return  
+- Most stable on dynamic maps  
+- Best overall success rate
 
-The agent learns to navigate the environment using reinforcement learning:
+---
 
-Takes an action based on an ε-greedy policy
+## 📦 Installation
 
-Receives a reward from the environment
+### 1. Create a virtual environment (recommended)
 
-Updates its Q-values using the selected RL algorithm
-
-Repeats for many episodes until it converges on an optimal policy
-
-Each algorithm differs in how it updates Q-values, making their behaviors and stability interesting to compare.
-
-# 📊 Results & Observations
-
-Q-Learning typically converged the fastest and found shorter paths.
-
-SARSA produced safer, more conservative policies depending on ε.
-
-Expected SARSA showed smoother learning curves due to expected policy updates.
-
-Increasing episodes improved stability, shown clearly through moving-average plots.
-
-More obstacles increased exploration time and affected early convergence.
-
-(Diagrams, accuracy charts, and comparisons can be added inside your report/ folder.)
-
-# 🧪 How to Run
-pip install -r requirements.txt
-python trainer.py
-
-
-# To change algorithms:
-
-alg = "q_learning"     # or "sarsa", "expected_sarsa"
-
-
-## To modify episodes or obstacles, adjust parameters in trainer.py.
-
-# 🎯 Future Enhancements
-
-Add Deep Q-Network (DQN) version
-
-Add GUI for easier grid editing
-
-Add heatmaps for learned Q-values
-
-Add stochastic transitions and variable rewards
-
-# 📄 License
-
-This project is open-source and available under the MIT License.
+```bash
+python -m venv penguin_env
