@@ -1,1 +1,1 @@
-# ArtEvolve-Evolutionary-Art-Generator-
+# ArtEvolve-Evolutionary-Art-Generator
